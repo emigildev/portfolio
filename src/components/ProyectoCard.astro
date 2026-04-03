@@ -1,0 +1,32 @@
+---
+const { titulo, descripcion, tecnologias } = Astro.props;
+---
+
+<article class="tarjeta">
+  <h3>{titulo}</h3>
+  <p>{descripcion}</p>
+  <p class="tech"><strong>Tecnologías:</strong> {tecnologias}</p>
+</article>
+
+<style>
+  .tarjeta {
+    border: 1px solid #ddd;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background-color: #f9f9f9;
+    transition: transform 0.2s;
+  }
+  .tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  h3 {
+    margin-top: 0;
+    color: #2c3e50;
+  }
+  .tech {
+    font-size: 0.9rem;
+    color: #666;
+  }
+</style>

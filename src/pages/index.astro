@@ -1,17 +1,84 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import ProyectoCard from "../components/ProyectoCard.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Emi - Portfolio Web">
+  <main class="contenedor">
+    <header class="presentacion">
+      <h1>Hola, soy Emi</h1>
+      <h2>Desarrollador Web y Diseñador Multimedia</h2>
+      <p>
+        Bienvenido a mi portafolio. Aquí comparto mis proyectos combinando
+        código y diseño.
+      </p>
+    </header>
+
+    <section class="proyectos">
+      <h2>Mis Trabajos</h2>
+
+      <div class="grilla-proyectos">
+        <ProyectoCard
+          titulo="PWA Gestión de Vuelos"
+          descripcion="Aplicación progresiva para administración de información de vuelos y asignación de agentes de aerolínea."
+          tecnologías="React, Node.js"
+        />
+
+        <ProyectoCard
+          titulo="Sitio Web VW Kombi"
+          descripcion="Proyecto final de grado enfocado en el diseño e historia de la icónica Volkswagen Kombi."
+          tecnologías="HTML, CSS, JavaScript"
+        />
+
+        <ProyectoCard
+          titulo="Sistema Tikkunpsynova"
+          descripcion="Aplicación web para gestión de turnos y facturación de un grupo de psicología."
+          tecnologías="Web Development"
+        />
+
+        <ProyectoCard
+          titulo="Pollería App"
+          descripcion="Aplicación web para gestión de personal de una pollería."
+          tecnologías="React, Node.js"
+        />
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .contenedor {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: system-ui, sans-serif;
+  }
+  .presentacion {
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+  h1 {
+    font-size: 3rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+    color: #34495e;
+    font-weight: 400;
+  }
+
+  .proyectos h2 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Aquí aplicamos CSS Grid para que las tarjetas se acomoden solas */
+  .grilla-proyectos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+</style>
