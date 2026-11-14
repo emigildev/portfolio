@@ -1,6 +1,9 @@
 ---
+import Header from "../components/Header.astro";
+
 // Aquí recibimos el título que le pasamos desde index.astro
 const { title } = Astro.props;
+
 ---
 
 <!doctype html>
@@ -14,16 +17,31 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <Header />
     <slot />
   </body>
 </html>
 
 <style is:global>
+  /* Paleta de colores del sitio: si cambiás un color acá, cambia en todos lados */
+  :root {
+    --color-fondo: #0d1526;
+    --color-superficie: #151f35;
+    --color-borde: #26324d;
+    --color-texto: #e2e8f0;
+    --color-texto-suave: #94a3b8;
+    --color-violeta: #7338e2;
+    --color-rosa: #fd79c7;
+    --degradado: linear-gradient(90deg, var(--color-violeta), var(--color-rosa));
+  }
+
   /* Estos estilos se aplicarán a toda la página web */
   html {
     font-family: system-ui, sans-serif;
-    background-color: #ffffff;
-    color: #333333;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    color-scheme: dark;
+    scroll-behavior: smooth;
   }
   body {
     margin: 0;

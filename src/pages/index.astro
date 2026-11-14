@@ -1,20 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ProyectoCard from "../components/ProyectoCard.astro";
+
 ---
 
 <Layout title="Emi - Portfolio Web">
   <main class="contenedor">
     <header class="presentacion">
-      <h1>Hola, soy Emi</h1>
-      <h2>Desarrollador Web y Diseñador Multimedia</h2>
+      <h1>Hola, soy <span class="destacado">Emi</span></h1>
+      <h2>Desarrolladora Web y Diseñadora Multimedia</h2>
       <p>
-        Bienvenido a mi portafolio. Aquí comparto mis proyectos combinando
-        código y diseño.
+        Te doy la bienvenida a mi portfolio
       </p>
     </header>
 
-    <section class="proyectos">
+    <section class="proyectos" id="proyectos">
       <h2>Mis Trabajos</h2>
 
       <div class="grilla-proyectos">
@@ -47,36 +47,46 @@ import ProyectoCard from "../components/ProyectoCard.astro";
 </Layout>
 
 <style>
-  .contenedor {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    font-family: system-ui, sans-serif;
-  }
-  .presentacion {
-    text-align: center;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-  }
-  h1 {
-    font-size: 3rem;
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
-  }
-  h2 {
-    font-size: 1.5rem;
-    color: #34495e;
-    font-weight: 400;
-  }
+.contenedor {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.presentacion {
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+h1 {
+  font-size: 3rem;
+  color: var(--color-texto);
+  margin-bottom: 0.5rem;
+}
+/* Texto con degradé: el fondo se "recorta" con la forma de las letras */
+.destacado {
+  background: var(--degradado);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+h2 {
+  font-size: 1.5rem;
+  color: var(--color-texto-suave);
+  font-weight: 400;
+}
+p {
+  color: var(--color-texto-suave);
+}
 
-  .proyectos h2 {
-    border-bottom: 2px solid #eee;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  /* Aquí aplicamos CSS Grid para que las tarjetas se acomoden solas */
-  .grilla-proyectos {
+.proyectos {
+  scroll-margin-top: 5rem; /* para que la barra fija no tape el título */
+}
+.proyectos h2 {
+  color: var(--color-texto);
+  border-bottom: 2px solid var(--color-borde);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}  .grilla-proyectos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
