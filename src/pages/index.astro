@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ProyectoCard from "../components/ProyectoCard.astro";
+import { proyectos } from "../data/proyectos";
 
 ---
 
@@ -8,7 +9,7 @@ import ProyectoCard from "../components/ProyectoCard.astro";
   <main class="contenedor">
     <header class="presentacion">
       <h1>Hola, soy <span class="destacado">Emi</span></h1>
-      <h2>Desarrolladora Web y Diseñadora Multimedia</h2>
+      <h2>Desarrolladora Web</h2>
       <p>
         Te doy la bienvenida a mi portfolio
       </p>
@@ -18,30 +19,9 @@ import ProyectoCard from "../components/ProyectoCard.astro";
       <h2>Mis Trabajos</h2>
 
       <div class="grilla-proyectos">
-        <ProyectoCard
-          titulo="PWA Gestión de Vuelos"
-          descripcion="Aplicación progresiva para administración de información de vuelos y asignación de agentes de aerolínea."
-          tecnologias="React, Node.js"
-        />
-
-        <ProyectoCard
-          titulo="Sitio Web VW Kombi"
-          descripcion="Proyecto final de grado enfocado en el diseño e historia de la icónica Volkswagen Kombi."
-          tecnologias="HTML, CSS, JavaScript"
-        />
-
-        <ProyectoCard
-          titulo="Sistema Tikkunpsynova"
-          descripcion="Aplicación web para gestión de turnos y facturación de un grupo de psicología."
-          tecnologias="Web Development"
-        />
-
-        <ProyectoCard
-          titulo="Pollería App"
-          descripcion="Aplicación web para gestión de personal de una pollería."
-          tecnologias="React, Node.js"
-        />
+        {proyectos.map((proyecto) => <ProyectoCard {...proyecto} />)}
       </div>
+
     </section>
   </main>
 </Layout>
