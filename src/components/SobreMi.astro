@@ -1,0 +1,59 @@
+---
+import { perfil } from "../data/perfil";
+---
+
+<section class="seccion" id="sobre-mi">
+  <h2>Sobre mí</h2>
+
+  <p>
+    Soy desarrolladora web. Llegué al desarrollo después de muchos años trabajando cerca
+    de la tecnología y de las personas: hice soporte técnico, di clases de informática y,
+    desde 2011, trabajo en <strong>Aerolíneas Argentinas</strong>, primero en el call center
+    y hoy en el aeropuerto.
+  </p>
+  <p>
+    Esa experiencia me enseñó a escuchar a quien usa un sistema y a detectar dónde se
+    traba. Por eso me gusta construir herramientas que resuelven problemas concretos del
+    día a día.
+  </p>
+  <p>
+    En 2026 me recibí en la <strong>Universidad Nacional del Litoral</strong>. Hoy trabajo
+    con React, TypeScript y Astro, y estoy aprendiendo desarrollo para Android TV con Kotlin.
+  </p>
+
+  <h3>Tecnologías que uso</h3>
+  <ul class="tecnologias">
+    {perfil.tecnologias.map((tecnologia) => <li>{tecnologia}</li>)}
+  </ul>
+</section>
+
+<style>
+  p {
+    color: var(--color-texto-suave);
+    line-height: 1.7;
+  }
+  strong {
+    color: var(--color-texto);
+    font-weight: 600;
+  }
+  h3 {
+    margin-top: 2rem;
+    font-size: 1rem;
+    color: var(--color-texto);
+  }
+  .tecnologias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .tecnologias li {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    color: var(--color-texto);
+    background-color: color-mix(in srgb, var(--color-violeta) 22%, transparent);
+  }
+</style>

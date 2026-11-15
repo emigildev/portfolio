@@ -1,0 +1,191 @@
+---
+import { perfil } from "../data/perfil";
+---
+
+<section class="seccion" id="contacto">
+  <h2>Contacto</h2>
+
+  <p class="intro">¿Tenés un proyecto en mente o una propuesta de trabajo? Escribime.</p>
+
+  <form
+    id="form-contacto"
+    class="formulario"
+    action={`https://formspree.io/f/${perfil.formspreeId}`}
+    method="POST"
+  >
+    <label>
+      Nombre
+      <input type="text" name="nombre" autocomplete="name" required />
+    </label>
+
+    <label>
+      Tu email
+      <input type="email" name="email" autocomplete="email" required />
+    </label>
+
+    <label>
+      Mensaje
+      <textarea name="mensaje" rows="5" required></textarea>
+    </label>
+
+    <!-- Asunto del mail que te llega -->
+    <input type="hidden" name="_subject" value="Nuevo mensaje desde el portfolio" />
+
+    <!-- Trampa para bots: las personas no lo ven, los robots lo completan y Formspree los descarta -->
+    <input type="text" name="_gotcha" class="trampa" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+    <button type="submit" class="boton">Enviar mensaje</button>
+
+    <p class="resultado" role="status" aria-live="polite"></p>
+  </form>
+
+  <div class="redes">
+    {perfil.linkedin && <a href={perfil.linkedin} target="_blank" rel="noopener">LinkedIn</a>}
+    <a href={perfil.github} target="_blank" rel="noopener">GitHub</a>
+  </div>
+</section>
+
+<script>
+  // Este código corre en el navegador de quien visita el sitio.
+  // Envía el formulario sin salir de la página y muestra el resultado.
+  const formulario = document.querySelector<HTMLFormElement>("#form-contacto");
+
+  formulario?.addEventListener("submit", async (evento) => {
+    evento.preventDefault(); // evita que el navegador cambie de página
+
+    const boton = formulario.querySelector("button")!;
+    const resultado = formulario.querySelector<HTMLParagraphElement>(".resultado")!;
+
+    boton.disabled = true;
+    resultado.dataset.tipo = "";
+    resultado.textContent = "Enviando…";
+
+    try {
+      const respuesta = await fetch(formulario.action, {
+        method: "POST",
+        body: new FormData(formulario),
+        headers: { Accept: "application/json" },
+      });
+
+      if (!respuesta.ok) throw new Error("Formspree respondió con error");
+
+      formulario.reset();
+      resultado.dataset.tipo = "ok";
+      resultado.textContent = "¡Gracias! Tu mensaje llegó y te voy a responder pronto.";
+    } catch {
+      resultado.dataset.tipo = "error";
+      resultado.textContent = "No se pudo enviar el mensaje. Probá de nuevo en unos minutos.";
+    } finally {
+      boton.disabled = false;
+    }
+  });
+</script>
+
+<style>
+  .intro {
+    text-align: center;
+    color: var(--color-texto-suave);
+  }
+
+  .formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 520px;
+    margin: 1.5rem auto 0;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-texto);
+  }
+
+  input,
+  textarea {
+    font: inherit;
+    font-weight: 400;
+    padding: 0.7rem 0.9rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-superficie);
+    color: var(--color-texto);
+    transition: border-color 0.2s;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--color-violeta);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-violeta) 30%, transparent);
+  }
+
+  .trampa {
+    position: absolute;
+    left: -9999px;
+  }
+
+  .boton {
+    align-self: center;
+    margin-top: 0.5rem;
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 999px;
+    background: var(--degradado);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+  }
+
+  .boton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--color-violeta) 35%, transparent);
+  }
+
+  .boton:disabled {
+    opacity: 0.6;
+    cursor: wait;
+  }
+
+  .resultado {
+    min-height: 1.5em;
+    margin: 0;
+    text-align: center;
+    color: var(--color-texto-suave);
+  }
+
+  .resultado[data-tipo="ok"] {
+    color: var(--color-rosa);
+  }
+
+  .resultado[data-tipo="error"] {
+    color: #f87171;
+  }
+
+  .redes {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding-bottom: 4rem;
+  }
+
+  .redes a {
+    color: var(--color-rosa);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .redes a:hover {
+    text-decoration: underline;
+  }
+</style>

@@ -10,7 +10,8 @@ import Logo from "../assets/logo-eg.svg";
   <nav aria-label="Principal">
     <ul>
       <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="https://github.com/emigildev" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#contacto">Contacto</a></li>
     </ul>
   </nav>
 </header>
@@ -50,5 +51,15 @@ import Logo from "../assets/logo-eg.svg";
 
   nav a:hover {
     color: var(--color-rosa);
+  }
+
+    /* En pantallas chicas (celulares) achicamos márgenes y separación */
+  @media (max-width: 480px) {
+    .barra {
+      padding: 1rem;
+    }
+    ul {
+      gap: 1rem;
+    }
   }
 </style>

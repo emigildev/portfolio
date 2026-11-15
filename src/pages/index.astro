@@ -2,6 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import ProyectoCard from "../components/ProyectoCard.astro";
 import { proyectos } from "../data/proyectos";
+import SobreMi from "../components/SobreMi.astro";
+import Contacto from "../components/Contacto.astro";
+import Trayectoria from "../components/Trayectoria.astro";
 
 ---
 
@@ -15,7 +18,7 @@ import { proyectos } from "../data/proyectos";
       </p>
     </header>
 
-    <section class="proyectos" id="proyectos">
+    <section class="seccion" id="proyectos">
       <h2>Mis Trabajos</h2>
 
       <div class="grilla-proyectos">
@@ -23,6 +26,9 @@ import { proyectos } from "../data/proyectos";
       </div>
 
     </section>
+    <SobreMi />
+    <Trayectoria />
+    <Contacto />
   </main>
 </Layout>
 
@@ -49,7 +55,7 @@ h1 {
   background-clip: text;
   color: transparent;
 }
-h2 {
+.presentacion h2 {
   font-size: 1.5rem;
   color: var(--color-texto-suave);
   font-weight: 400;

@@ -1,0 +1,32 @@
+---
+import LineaDeTiempo from "./LineaDeTiempo.astro";
+import { experiencia, formacion, idiomas } from "../data/trayectoria";
+---
+
+<section class="seccion" id="trayectoria">
+  <h2>Trayectoria</h2>
+
+  <div class="columnas">
+    <LineaDeTiempo titulo="Experiencia" etapas={experiencia} />
+    <LineaDeTiempo titulo="Formación" etapas={formacion} />
+  </div>
+
+  <p class="idiomas"><strong>Idiomas:</strong> {idiomas.join(" · ")}</p>
+</section>
+
+<style>
+  .columnas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+  }
+
+  .idiomas {
+    margin-top: 2.5rem;
+    color: var(--color-texto-suave);
+  }
+
+  .idiomas strong {
+    color: var(--color-texto);
+  }
+</style>

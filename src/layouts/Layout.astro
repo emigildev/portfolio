@@ -50,4 +50,18 @@ const { title } = Astro.props;
   * {
     box-sizing: border-box; /* El truco del Box Model que vimos antes */
   }
+
+    /* Estilo compartido por todas las secciones de la página */
+  .seccion {
+    margin-top: 5rem;
+    scroll-margin-top: 5rem; /* para que la barra fija no tape el título */
+  }
+  .seccion > h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-texto);
+    border-bottom: 2px solid var(--color-borde);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
 </style>
