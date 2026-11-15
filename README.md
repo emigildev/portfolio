@@ -1,43 +1,43 @@
-# Astro Starter Kit: Minimal
+# Portfolio · emigildev
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Mi portfolio como desarrolladora web: proyectos, trayectoria y contacto.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+🔗 **https://emigildev.github.io/portfolio/**
 
-## 🚀 Project Structure
+## Tecnologías
 
-Inside of your Astro project, you'll see the following folders and files:
+- [Astro](https://astro.build) con salida estática: todo el HTML se genera al compilar.
+- TypeScript para los datos y las props de los componentes.
+- CSS propio con variables para la paleta de colores (sin frameworks).
+- [Formspree](https://formspree.io) para el formulario de contacto.
+- Publicación automática en GitHub Pages con GitHub Actions.
+
+## Estructura
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+├── assets/       # Logo en SVG
+├── components/   # Header, tarjetas de proyecto, secciones
+├── data/         # Contenido del sitio: proyectos, perfil y trayectoria
+├── layouts/      # Layout base: <head>, metadatos y estilos globales
+└── pages/        # index.astro, la página principal
+public/           # Archivos que se sirven tal cual (favicon, imagen para redes)
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Para agregar o modificar contenido, en general alcanza con editar los archivos de `src/data/`.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Comandos
 
-Any static assets, like images, can be placed in the `public/` directory.
+| Comando           | Qué hace                                          |
+| :---------------- | :------------------------------------------------ |
+| `npm install`     | Instala las dependencias                          |
+| `npm run dev`     | Servidor local en `localhost:4321/portfolio`      |
+| `npm run check`   | Revisa errores de tipos en todo el proyecto       |
+| `npm run build`   | Genera el sitio en `dist/`                        |
+| `npm run preview` | Sirve localmente el sitio generado                |
 
-## 🧞 Commands
+## Publicación
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Cada cambio que llega a la rama `main` se publica solo mediante el workflow
+`.github/workflows/astro.yml`. Los cambios nuevos se trabajan en una rama aparte y
+se suman a `main` con un Pull Request.
