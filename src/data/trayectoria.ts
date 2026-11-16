@@ -47,9 +47,11 @@ export const formacion: Etapa[] = [
     periodo: "2017 – 2026",
   },
   {
-    titulo: "Google IT Support Professional Certificate",
+    titulo: "Certificado de Soporte de Tecnologías de la Información de Google",
     lugar: "Google · Coursera",
     periodo: "2024 – actualidad",
+    descripcion:
+      "Cursos aprobados: Aspectos básicos de la asistencia técnica y Los bits y bytes de las redes informáticas.",
     enCurso: true,
   },
   {
