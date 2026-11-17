@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title: string;
@@ -44,6 +45,7 @@ const urlImagen = new URL(`${import.meta.env.BASE_URL}/og-imagen.png`, Astro.sit
   <body>
     <Header />
     <slot />
+    <Footer />
   </body>
 </html>
 
