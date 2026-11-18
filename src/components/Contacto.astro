@@ -38,11 +38,6 @@ import { perfil } from "../data/perfil";
 
     <p class="resultado" role="status" aria-live="polite"></p>
   </form>
-
-  <div class="redes">
-    {perfil.linkedin && <a href={perfil.linkedin} target="_blank" rel="noopener">LinkedIn</a>}
-    <a href={perfil.github} target="_blank" rel="noopener">GitHub</a>
-  </div>
 </section>
 
 <script>
@@ -92,7 +87,7 @@ import { perfil } from "../data/perfil";
     flex-direction: column;
     gap: 1rem;
     max-width: 520px;
-    margin: 1.5rem auto 0;
+    margin: 1.5rem auto 3rem;
   }
 
   label {
@@ -169,23 +164,5 @@ import { perfil } from "../data/perfil";
 
   .resultado[data-tipo="error"] {
     color: #f87171;
-  }
-
-  .redes {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 2rem;
-    padding-bottom: 4rem;
-  }
-
-  .redes a {
-    color: var(--color-rosa);
-    font-weight: 600;
-    text-decoration: none;
-  }
-
-  .redes a:hover {
-    text-decoration: underline;
   }
 </style>

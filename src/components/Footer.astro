@@ -1,0 +1,67 @@
+---
+import Logo from "../assets/logo-eg.svg";
+import { perfil } from "../data/perfil";
+
+// Se calcula al compilar el sitio: se actualiza solo en cada publicación
+const anio = new Date().getFullYear();
+---
+
+<footer class="pie">
+  <div class="marca">
+    <Logo height={32} aria-hidden="true" />
+    <span class="nombre">emigildev</span>
+  </div>
+
+  <nav class="redes" aria-label="Redes">
+    <a href={perfil.github} target="_blank" rel="noopener">GitHub</a>
+    {perfil.linkedin && <a href={perfil.linkedin} target="_blank" rel="noopener">LinkedIn</a>}
+  </nav>
+
+  <p class="legal">© {anio} Emi · Hecho con Astro</p>
+</footer>
+
+<style>
+  .pie {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2.5rem 1rem;
+    border-top: 1px solid var(--color-borde);
+  }
+
+  .marca {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .nombre {
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--color-texto);
+  }
+
+  .redes {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .redes a {
+    color: var(--color-texto-suave);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  .redes a:hover {
+    color: var(--color-rosa);
+  }
+
+  .legal {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--color-texto-suave);
+  }
+</style>
